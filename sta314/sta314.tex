@@ -1,0 +1,189 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{hyperref}		% For \autoref
+\usepackage{parskip}		% Don't indent paragraphs; skip instead.
+
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{amsthm}
+\usepackage{changepage} 	% For adjustwidth environment
+\usepackage{colortbl}  		% Provides the  \arrayrulecolor command.
+\usepackage{environ}
+\usepackage{framed}			% For leftbar environment
+\usepackage{mathtools}		% For the \mathclap command.
+\usepackage{ragged2e}		% FlushLeft environment
+\usepackage{thmtools}		% For restatable environment
+\usepackage{varwidth}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\usepackage[margin=3cm]{geometry}
+
+
+\newenvironment{indentone}{\begin{adjustwidth}{3em}{0em}}{\end{adjustwidth}}
+
+% \renewcommand{\bfseries}{\scshape}
+% \usepackage{ccfonts}
+\newcommand\op[1]{{\ \mathrm{#1}\ }}
+\newcommand\uop[1]{{\mathrm{#1}}}
+
+\newcommand\AND{{\op{AND}}}
+\newcommand\IMPLIES{{\op{IMPLIES}}}
+\newcommand\MYS{{\op{MYS}}}
+\newcommand\OR{{\op{OR}}}
+\newcommand\NOT{{\uop{NOT}}}
+\newcommand\XOR{{\op{XOR}}}
+\newcommand\IFF{{\op{IFF}}}
+\newcommand\VEC{\mathbf}
+\newcommand\DIV{\>|\>}
+
+\newcommand\FALSE{{\mathrm{F}}}
+\newcommand\TRUE{{\mathrm{T}}}
+
+% Number sets
+\newcommand{\Nats}{\mathbb N}		% Naturals
+\newcommand{\Ints}{\mathbb Z}		% Integers
+\newcommand{\Q}{\mathbb Q}			% Rationals
+\newcommand{\R}{\mathbb R}			% Reals
+\newcommand{\C}{\mathbb C}			% Complexes
+\newcommand{\cO}{\mathcal O}		% Big-Oh
+\newcommand{\cP}{\mathcal P}		% Power set
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{homework}{Homework}[section]
+\numberwithin{equation}{section}
+% \newtheorem*{corollary}{Corollary}
+% \newtheorem*{theorem}{Theorem}
+% \newtheorem*{definition}{Definition}
+% \newtheorem*{remark}{Remark}
+
+
+% Essential sections of notes, e.g. definitions/theorems.
+% \NewEnviron{bigbox}{{
+
+%     \newdimen\slidewidth
+%     \slidewidth=\linewidth
+%     % Without this, I get errors beginning "Overfull \hbox (6.79999pt too
+%     % wide)"
+%     \advance\slidewidth by -7pt
+
+%     \medskip
+
+%     \fbox{parbox{\slidewidth}{\BODY}}
+
+%     \medskip
+
+%   }}
+
+% Stuff I should write or draw during lecture. (from James)
+% Additional notes
+
+
+\NewEnviron{writenotes}{\vspace{1ex}\begin{leftbar}{\BODY}\end{leftbar}}
+
+\title{Notes\\
+  {\large STA314H1 - Fall 2020}}
+\author{Ziyue Yang}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Week 5}
+\subsection{The Singular Value Decomposition}
+
+\begin{remark}
+ We know that $\| X \|_2$ is the square root of the largest eigenvalue of $X^T X$, hence at some point , whenever we see one of the inner product matrices, we should recall the \textbf{PCA}.
+
+ The SVD is a good way to understand exactly how PCA is working in terms of the feature matrix $X$.
+\end{remark}
+
+\begin{theorem}[The Singular Value Decomposition]
+  Assume that $p < n$.
+
+  Let $X$ be an $n\times p$ matrix. Then there exists an orthogonal $p\times p$ matrix $V$ (i.e. $V^T V = VV^T = I$) and an orthogonal $n\times n$ matrix $U$ such that
+  \begin{equation}
+    U^TXV=D,
+  \end{equation}
+where $D=\text{diag}(\sigma_1,\dots,\sigma_p)$, and $\sigma_1\geq \dots\geq \sigma_p\geq 0$.
+\end{theorem}
+
+\begin{proof}
+  Omitted for now.
+\end{proof}
+
+\begin{remark}
+  We can express the SVD of an $n\times p$ matrix $X$ in several equivalent ways:
+  \begin{enumerate}
+    \item As a singular tuple $(\sigma,u,v)$ that satisfies $Xv=\sigma u$ and $X^Tu=\sigma v$.
+    \item As a matrix decomposition $X=UDV^T$, where $V$ is a $p\times p$ orthogonal matrix, and $U$ is a $n\times n$ orthogonal matrix.
+    \item As a way of representing the matrix as a sum
+    \begin{equation}
+      X=\sum^p_{j=1}\sigma_j u_j v_j^T.
+    \end{equation}
+  \end{enumerate}
+\end{remark}
+
+\begin{remark}[The SVD and Principal Components]
+ Recall that the factor loadings are the eigenvectors of $X^TX$.
+
+ If $X=UDV^T$, then $X^TX=V^TDU^TUDV^T=VD^2V^T$.
+ \begin{itemize}
+ \item The $V$ in the SVD is exactly the matrix of factor loadings.
+ \item The eigenvalues of $X^TX$ are the squares of the singular values.
+ \end{itemize}
+ Note that the score vectors were defined as $t_j=Xv_j$, and We can use one of the representations of singular vectors to see that
+ \begin{equation}
+   t_j=Xv_j=\sigma_j u_j.
+ \end{equation}
+\end{remark}
+
+\begin{remark}
+  The SVD makes it easy to solve the normal equations.
+
+  Recall that
+  \begin{align}
+    \hat\beta &= (X^TX)^{-1}X^Ty\\
+    &=VD^{-2}V^TVDU^Ty\\
+    &=VD^{-1}U^Ty\\
+    &=\sum^p_{j=1}\frac{u_j^T y}{\sigma_j}v_j.
+  \end{align}
+
+  PCR just snipes off the small eigenvectors:
+  \begin{equation}
+    \hat\beta_{\text{pcr}}=V_kD_k^{-2}V_k^TVDU^T=\sum^k_{j=1}\frac{u_j^Ty}{\sigma_j}v_j.
+  \end{equation}
+\end{remark}
+
+\subsection{Ridge Regression}
+
+
+
+\newpage
+
+\section{Week 7}
+\subsection{Introduction to Lasso}
+
+\begin{remark}
+  Ridge regression stabilizes the least-squares estimates by shrinking low-variance directions, which makes it like a \textit{softer} version of \textbf{principal component regression}.
+\end{remark}
+
+\begin{writenotes}
+  Can we use penalized regression to make a softer version of variable selection? Yes. But we need to use a different penalty.
+\end{writenotes}
+
+
+\end{document}
