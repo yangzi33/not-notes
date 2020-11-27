@@ -1,12 +1,17 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Module 10 - Diagnostics in MLR}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Inference for a Single Regression Coefficient}{2}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Hypothesis Testing}{2}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Confidence Interval}{2}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Global F-test vs. Individual t-tests}{2}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}Multicollinearity}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Diagnostics and Remedies}{5}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Leverage and Influential Points}{5}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}The Box-Cox Transformation}{5}{subsubsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.4}Added Variable Plot (Need to Review Lecture Part 3)}{6}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Data Analysis Flow}{7}{subsection.1.5}%
+\contentsline {section}{\numberline {1}Module 9 - Multiple Linear Regression Analysis}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Review}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}$R^2$ and Adjusted $R^2$}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Global and Partial F-tests}{3}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Motivational Examples: Salary vs. Experience, Wine Quality}{3}{subsubsection.1.3.1}%
+\contentsline {section}{\numberline {2}Module 10 - Diagnostics in MLR}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Inference for a Single Regression Coefficient}{4}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Hypothesis Testing}{4}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Confidence Interval}{4}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Global F-test vs. Individual t-tests}{4}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Multicollinearity}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Diagnostics and Remedies}{6}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Leverage and Influential Points}{6}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}The Box-Cox Transformation}{6}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Added Variable Plot (Need to Review Lecture Part 3)}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Data Analysis Flow}{8}{subsection.2.5}%

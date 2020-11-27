@@ -59,9 +59,11 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{remark}{Remark}[section]
 \newtheorem{example}{Example}[section]
+\newtheorem{question}{Question}[section]
 \newtheorem{problem}{Problem}[section]
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem{homework}{Homework}[section]
+\newtheorem{algorithm}{algorithm}[section]
 \numberwithin{equation}{section}
 % \newtheorem*{corollary}{Corollary}
 % \newtheorem*{theorem}{Theorem}
@@ -103,6 +105,116 @@
 
 \newpage
 
+\section{Module 9 - Multiple Linear Regression Analysis}
+\subsection{Review}
+\textbf{Multiple Linear Regression}
+\begin{itemize}
+\item MLR Model (to obtain using the least-squares estimation):
+\begin{equation}
+  \VEC{Y} = \VEC{X\beta} + \VEC{e},
+\end{equation}
+where
+\begin{indentone}
+$\VEC{Y}\in M_{n\times 1}$, 
+
+$\VEC{X}\in M_{n\times(p+1)}$,
+
+$\VEC{\beta}\in M_{p+1}$,
+
+$\VEC{e}\in M_{n\times 1}$,
+
+\end{indentone}
+
+\item $p$ predictors: $p+1$ $\VEC{\beta}$'s
+\item Gauss-Markov Conditions: $E(\VEC{e})=0, Var(\VEC{e})=\sigma^2 I$
+\item Normal Error assumption (for inference)
+\end{itemize}
+
+\subsection{$R^2$ and Adjusted $R^2$}
+
+\begin{definition}[$R^2$: Coefficient of Multiple Determination]
+  \begin{equation}
+  R^2=\frac{SSReg}{SST}=1-\frac{RSS}{SST} = \frac{\VEC{Y'(H-\frac{1}{n} J)Y}}{\VEC{Y'(I-\frac{1}{n}J)Y}}
+  \end{equation}
+
+  called the coefficient of multiple determination (in the MLR setting).
+
+  $R^2$ gives the percentage of variation in $Y$ explained by the model with all the $p$ predictors.
+\end{definition}
+\begin{writenotes}
+  Note that it's NOT the square of a sample correlation coefficient ($r^2$) anymore.
+\end{writenotes}
+
+\begin{remark}
+For the same $Y$, as $p$ increases, 
+
+\begin{indentone}
+  SST remains the same,
+
+  SSReg stays the same or increases,
+
+  RSS stays the same or decreases, 
+\end{indentone}
+
+hence $R^2$ either stays the same or increases.
+\end{remark}
+
+\begin{question}
+  Is $R^2$ helpful in telling whether additional predictors are \textit{useful} for explaining the response?
+
+  No.
+\end{question}
+
+\begin{definition}[Adjusted $R^2$]
+  \begin{equation}
+    R^2_{adj} = 1- \frac{RSS/(n-p-1)}{SST/(n-1)} = 1 - (n-1)\frac{MSE}{SST}
+  \end{equation}
+
+  where $S^2=\frac{RSS}{n-p-1}$ is an unbiased estimate of $\sigma^2=Var(e_i)=Var(Y_i)$.
+  \begin{itemize}
+    \item adjusted for the number of predictors in the model
+    \item better to use instead of $R^2$
+    \item always: $R^2_{adj} < R^2$ (note that the inequality is strict) 
+  \end{itemize}
+\end{definition}
+\begin{writenotes}
+  Case. $p > 1$ (MLR)
+  \begin{indentone}
+    Then $(n-1)/(n-p-1) > 1$
+  \end{indentone}
+  General case: as $p$ increases (adding more predictors to the model), $(n-1)/(n-p-1)$ increases.
+\end{writenotes}
+
+\subsection{Global and Partial F-tests}
+\subsubsection{Motivational Examples: Salary vs. Experience, Wine Quality}
+\begin{definition}[Global F-test]
+  Testing Hypotheses: for $j=1\dots p$,
+  \begin{gather}
+    H_0: \beta_1=\beta_2=\dots=\beta_p=0\\
+    H_a: \text{at least one } \beta_j \text{ is not } 0
+  \end{gather}
+  To test whether there is a linear association between $Y$ and all predictors.
+
+  Test statistic:
+  \begin{equation}
+    F_{obs} = \frac{MSReg}{MSE}=\frac{SSReg/p}{RSS/(n-p-1)}
+  \end{equation}
+
+  Under $H_0$, $F_{obs}$ is an observation from the $F$ distribution with $df=(p,n-p-1)$.
+
+  Hence we can conclude that
+  \begin{indentone}
+    Small p-value: Rhe model contains at least one significant predictor among the set of $p$ predictors
+
+    Large p-value: None of the $p$ predictors are relevant for estimating/predicting $Y$.
+  \end{indentone}
+\end{definition}
+
+
+
+
+\newpage
+
 \section{Module 10 - Diagnostics in MLR}
 
 \subsection{Inference for a Single Regression Coefficient}
@@ -123,7 +235,7 @@ Test statistic:
 
 Under $H_0$, $t_{obs}$ is an observation from the T distribution with $\text{df}=n-p-1$. This test gives an indication of whether or not the $j$th predictor, $X_j,j=1\dots p$, contributes to the prediction of the response variable \textbf{over and above} all the other predictors.
 
-\textbf{Special case} of the Partial F-test with $k=1$
+This is the special case of the Partial F-test with $k=1$
 
 \subsubsection{Confidence Interval}
 
@@ -132,12 +244,12 @@ Confidence interval for $\beta_j, j=1\dots p$, assuming all the other predictors
 \begin{equation}
   \beta_j \pm t_{\alpha/2, n-p-1}SE(b_j),
 \end{equation}
-(i.e. unbiased estimate $\pm$ Margin of Error, where MOE is critical value times std error).
+(i.e. unbiased estimate $\pm$ Margin of Error, where MOE is the critical value $\times$ std error).
 
 where
 \begin{itemize}
   \item $b_j$: unbiased estimator of $\beta_j$
-  \item $SE(b_j)$: standard error of estimator
+  \item $SE(b_j)$: standard error of the estimator
   \item $t_{\alpha/2, n-p-1}$: critical value of $100(1-\alpha/2)$th quantile from the T distribution with $\text{df}=n-p-1$.
 \end{itemize}
 
@@ -150,7 +262,9 @@ where
 \textbf{Case A.} If the Global F-test is significant and:
 \begin{itemize}
 \item A.1: All or some or the t-tests are significant, $\implies$ there are some useful explanatory variables for predicting $Y$.
-\item A.2: All the t-tests are not significant, $\implies$ this is an indication of "multicollinearity" - i.e., strongly correlated $X$'s. This implies taht individual X's do not contribute to the prediction of Y over and above other $X$'s.
+\item A.2: All the t-tests are not significant, $\implies$ this is an indication of "multicollinearity", i.e. strongly correlated $X$'s.
+
+This implies that individual X's do not contribute to the prediction of Y over and above other $X$'s.
 \end{itemize}
 
 \textbf{Case B.} If the Global F-test is NOT significant and:
@@ -163,7 +277,6 @@ where
 \end{itemize}
 \end{itemize}
 
-\newpage
 
 \subsection{Multicollinearity}
 

@@ -1,11 +1,16 @@
-\BOOKMARK [1][-]{section.1}{Module 10 - Diagnostics in MLR}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Inference for a Single Regression Coefficient}{section.1}% 2
-\BOOKMARK [3][-]{subsubsection.1.1.1}{Hypothesis Testing}{subsection.1.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.1.2}{Confidence Interval}{subsection.1.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.1.3}{Global F-test vs. Individual t-tests}{subsection.1.1}% 5
-\BOOKMARK [2][-]{subsection.1.2}{Multicollinearity}{section.1}% 6
-\BOOKMARK [2][-]{subsection.1.3}{Diagnostics and Remedies}{section.1}% 7
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Leverage and Influential Points}{subsection.1.3}% 8
-\BOOKMARK [3][-]{subsubsection.1.3.2}{The Box-Cox Transformation}{subsection.1.3}% 9
-\BOOKMARK [2][-]{subsection.1.4}{Added Variable Plot \(Need to Review Lecture Part 3\)}{section.1}% 10
-\BOOKMARK [2][-]{subsection.1.5}{Data Analysis Flow}{section.1}% 11
+\BOOKMARK [1][-]{section.1}{Module 9 - Multiple Linear Regression Analysis}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Review}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{R2 and Adjusted R2}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Global and Partial F-tests}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Motivational Examples: Salary vs. Experience, Wine Quality}{subsection.1.3}% 5
+\BOOKMARK [1][-]{section.2}{Module 10 - Diagnostics in MLR}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Inference for a Single Regression Coefficient}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Hypothesis Testing}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Confidence Interval}{subsection.2.1}% 9
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Global F-test vs. Individual t-tests}{subsection.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.2}{Multicollinearity}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.3}{Diagnostics and Remedies}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Leverage and Influential Points}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.2}{The Box-Cox Transformation}{subsection.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Added Variable Plot \(Need to Review Lecture Part 3\)}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.5}{Data Analysis Flow}{section.2}% 16

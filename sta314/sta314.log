@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 OCT 2020 00:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  26 NOV 2020 20:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -431,6 +431,14 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 209.
+)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -457,36 +465,38 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \c@definition=\count281
 \c@remark=\count282
 \c@example=\count283
-\c@problem=\count284
-\c@exercise=\count285
-\c@homework=\count286
+\c@question=\count284
+\c@problem=\count285
+\c@exercise=\count286
+\c@homework=\count287
+\c@algorithm=\count288
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count287
+\l__kernel_color_stack_int=\count289
 \l__pdf_internal_box=\box51
 )
 (./sta314.aux)
 \openout1 = `sta314.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
+LaTeX Font Info:    ... okay on input line 100.
 \AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring OFF on input line 98.
+Package hyperref Info: Link coloring OFF on input line 100.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -498,11 +508,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count288
+\c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 98.
-LaTeX Info: Redefining \pageref on input line 98.
-LaTeX Info: Redefining \nameref on input line 98.
+LaTeX Info: Redefining \ref on input line 100.
+LaTeX Info: Redefining \pageref on input line 100.
+LaTeX Info: Redefining \nameref on input line 100.
  (./sta314.out) (./sta314.out)
 \@outlinefile=\write3
 \openout3 = `sta314.out'.
@@ -510,16 +520,16 @@ LaTeX Info: Redefining \nameref on input line 98.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count289
+\scratchcounter=\count291
 \scratchdimen=\dimen175
 \scratchbox=\box53
-\nofMPsegments=\count290
-\nofMParguments=\count291
+\nofMPsegments=\count292
+\nofMParguments=\count293
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count292
+\MPscratchCnt=\count294
 \MPscratchDim=\dimen176
-\MPnumerator=\count293
-\makeMPintoPDFobject=\count294
+\MPnumerator=\count295
+\makeMPintoPDFobject=\count296
 \everyMPtoPDFconversion=\toks37
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -539,7 +549,7 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 \Gin@req@width=\dimen178
 )
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 98.
+LaTeX Info: Redefining \selectfont on input line 100.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -575,12 +585,12 @@ LaTeX Info: Redefining \selectfont on input line 98.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+LaTeX Font Info:    Trying to load font information for U+msa on input line 102
 .
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+LaTeX Font Info:    Trying to load font information for U+msb on input line 102
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -593,30 +603,43 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Package hyperref Info: bookmark level for unknown question defaults to 0 on inp
+ut line 114.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
+nput line 126.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
+t line 152.
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
- line 109.
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
-t line 114.
+ line 172.
 
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
+[2]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
+t line 177.
+ [3]
+<./images/overfitting.png, id=154, 704.6325pt x 539.01375pt>
+File: ./images/overfitting.png Graphic file (type png)
+<use ./images/overfitting.png>
+Package pdftex.def Info: ./images/overfitting.png  used on input line 255.
+(pdftex.def)             Requested size: 281.848pt x 215.60167pt.
+ [4 <./images/overfitting.png>] [5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 411.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 411.
  (./sta314.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 411.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 411.
 Package rerunfilecheck Info: File `sta314.out' has not changed.
-(rerunfilecheck)             Checksum: 57997AE910D02E8087E634DFD507561F;298.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
+(rerunfilecheck)             Checksum: B65DB8DC6CE67A7A5EBD6116C7ACAFFA;1427.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 411.
  ) 
 Here is how much of TeX's memory you used:
- 9648 strings out of 480608
- 143991 string characters out of 5903631
- 438841 words of memory out of 5000000
- 25284 multiletter control sequences out of 15000+600000
- 540737 words of font info for 55 fonts, out of 8000000 for 9000
+ 9856 strings out of 480608
+ 146995 string characters out of 5903631
+ 443270 words of memory out of 5000000
+ 25425 multiletter control sequences out of 15000+600000
+ 543812 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,9n,37p,909b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,10n,37p,909b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -626,15 +649,16 @@ sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
 al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on sta314.pdf (4 pages, 143878 bytes).
+/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on sta314.pdf (7 pages, 275470 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 276 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
+ 87 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
