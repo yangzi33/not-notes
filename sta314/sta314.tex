@@ -63,7 +63,7 @@
 \newtheorem{problem}{Problem}[section]
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem{homework}{Homework}[section]
-\newtheorem{algorithm}{algorithm}[section]
+\newtheorem{algorithm}{Algorithm}[section]
 \numberwithin{equation}{section}
 % \newtheorem*{corollary}{Corollary}
 % \newtheorem*{theorem}{Theorem}
@@ -134,7 +134,7 @@ The induced norm of a matrix $A$ is defined as
   NB: This works when $A$ is rectangular.
 \end{writenotes}
 
-\subsubsection{jj2-Norm of a Matrix}
+\subsubsection{2-Norm of a Matrix}
 
 We hold a special place for 2-norms, as well as the induced 2-norm of a matrix.
 
@@ -367,6 +367,30 @@ Hence the ridge regression shrinks each coefficient by a factor of
 
 \textbf{OMITTED TO SAVE TIME}
 
+\subsection{Coordinate Descent}
+
+\begin{algorithm}[Coordinate Descent]
+For the Lasso,
+
+  \begin{enumerate}
+    \item Start with $\beta = \beta_0$
+    \item Repreat until convergence: for each $j=1\dots p$,
+    \begin{indentone}
+      \item Update the $j^{\text{th}}$ coordinate of
+      \begin{equation}
+        \beta_j = \text{sign}(X^T_{:j}r_j)\left( |X^T_jr_j| - \lambda \right)_+
+      \end{equation}
+      where
+      \begin{equation}
+      r_j = y - \sum^p_{\substack{i=1\\k\neq j}}\beta_k X_{:k}
+      \end{equation}
+    \end{indentone}
+  \end{enumerate}
+\end{algorithm}
+
+
+\newpage
+
 \section{Week 8/9}
 % Part 4
 \subsection{Logistic Regression}
@@ -407,5 +431,164 @@ An option to prevent this is to add a penalty, which prevents us from being able
   -\frac{1}{n}\sum^n_{i=1}(y_i\log(p(\beta,x_i)) + (1-y)\log(1-p(\beta, x_i))) + \lambda\| \beta \|^2_2
   \end{equation}
 \end{indent}
+
+\newpage
+\subsection{Fitting Logistic Regression}
+
+Recall that in logistic regression, we estimate our parameters by maximizing the log-likelihood
+\begin{align}
+  L(\beta) &= \sum^n_{i=1}(y_i\log(p(x_i)) + (1 - y_i)\log(1 - p(x_i)))\\
+  &=\sum^n_{i=1}\left[ y_i(\beta_0 + x_i^T\beta) - \log\left(1 + \exp(\beta_0+x_i^T\beta)\right) \right]
+\end{align}
+
+\begin{writenotes}
+In fact, this minimizes the \textit{negative log-likelihood}.
+
+Unlike linear regression, there is NO closed form for $(\beta_0, \beta)$, which makes it challenging to find the solution.
+\end{writenotes}
+
+\textbf{How to find the solution?}
+
+Notice that the log likelihood for logistic regression is convex, hence it has unique global minimum.
+
+\subsubsection{Newton's Method}
+
+\begin{theorem}[Newton's Method]
+  Suppose we want to minimize $f(x)$. Starting at point $x_0$, we know that by Taylor's Theorem, for any $x$ near $x_0$,
+  \begin{align}
+    f(x)&\approx f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(x_0)(x - x_0)^2\\
+    &= f(x_0) - x_0f'(x_0) + \frac{1}{2}x_0^2 + x(f'(x_0) - x_0f''(x_0)) + \frac{1}{2}f''(x_0)x^2
+  \end{align}
+  This \textit{quadratic approximation} has an \textbf{explicit minimum}:
+  \begin{equation}
+    \frac{x_0f''(x_0) - f'(x_0)}{f''(x_0)} = x_0 - \frac{f'(x_0)}{f''(x_0)}
+  \end{equation}
+\end{theorem}
+
+\begin{theorem}[Newton's Method in 1D]
+  Newton's method continues by using the minimum of the quadratic approximation as the new starting point, forming a new approximation, and moving to the minimum.
+
+  The updates are
+  \begin{equation}
+    x_{m+1} = x_m - \frac{f'(x_m)}{f''(x_m)},
+  \end{equation}
+  which will converge if the starting point is \textit{close enough} to the true minimum.
+
+  \begin{writenotes}
+    There are procedures that can be useful to improve convergence, but we will omit it for now.
+  \end{writenotes}
+\end{theorem}
+
+\begin{theorem}[Newton's Method in Higher Dimensions]
+  We need to build a \textit{quadratic approximation} to the multivariate function $f(x)$.
+
+  To update the vector $x$, we use the gradient $\nabla f$ and the \textit{Hessian}, a matrix $H$ of all possible second order derivatives, where
+  \begin{equation}
+    H_{ij}[f](x) = \frac{\partial^2f}{\partial x_i\partial x_j}(x).
+  \end{equation}
+
+  The quadratic approximation around $x_k$ now looks like:
+  \begin{equation}
+    f(x)\approx f(x_m) + (x - x_m)^T\nabla f(x_m) + \frac{1}{2}(x - x_m)^TH[f](x_m)(x - x_m)
+  \end{equation}
+
+  We can find the minimum of the quadratic approximation using the \textit{same techniques} (reference?) as we used to minimize the least-squares risk to obtain
+  \begin{equation}
+    x_{m+1} = x_m - H[f](x_m)^{-1}\nabla f(x_m) ???
+  \end{equation}
+  % Page 7 of IRLS
+
+\end{theorem}
+
+Now we can apply all these to logistic regression. We will need to compute derivatives of
+
+\begin{equation}
+  L(\beta_0, \beta) = \sum^n_{i=1}\bigg[ y_i(\beta_0 + x_i^T\beta) - \log(1 + \exp(\beta_0 + x_i^T\beta)) \bigg]
+\end{equation}
+
+But it gets complicated if we compute all of the first and second derivatives. To makes things seasier, we \textit{suck} the intercept into $\beta$, and set $x_{i0}=1$ and write the likelihood as
+
+\begin{align}
+  L(\beta)&=\sum^n_{i=1}\bigg[ y_ix_i^T\beta-\log(1 + \exp(x_i^T\beta)) \bigg]\\
+  \implies\frac{\partial L}{\partial\beta_j} &=\sum^n_{i=1}\Bigg( y_ix_{ij} - \frac{x_{ij}\exp(x_i^T\beta)}{1+\exp(x_i^T\beta)} \Bigg)\label{dldbetaj}
+\end{align}
+
+So the linear part of the quadratic expansion around $\beta^{(m)}$ by multiplying each of these with $\beta_j$ and adding to get
+
+\begin{equation}
+  \sum^n_{i=1}\Bigg( y_ix_i^T\beta - \frac{x_i^T\exp(x_i^T\beta^{(m)})}{1+\exp(x_i^T\beta^{(m)})} \Bigg) + \text{constant}(\beta^{(m)})
+\end{equation}
+
+Differentiating (\ref{dldbetaj}) again we obtain
+\begin{equation}
+  \frac{\partial^2L}{\partial\beta_k\partial\beta_l}=-\sum^n_{i=1}\frac{x_{ik}x_{il}\exp(x_i^T\beta)}{(1+\exp(x_i^T\beta))^2},
+\end{equation}
+then for $b=\beta$ or $b=\beta^{(i)}$,
+\begin{equation}
+  \beta^TH[L](\beta^{(i)})b=-\sum^n_{i=1}\beta^Tx_ix_i^Tb\frac{\exp(\beta_0^{(i)} + x_i^T\beta^{(i)})}{(1+\exp(\beta_0^{(i)})+x_i^T\beta^{(i)})^2}
+\end{equation}
+
+To deal with the logistic transformation, we have
+\begin{equation}
+  \frac{p(x_i)}{1 - p(x_i)}=\exp(x_i^T\beta)
+\end{equation}
+implying
+\begin{gather}
+  p(x_i)=\frac{\exp(x_i^T)}{1+\exp(x_i^T\beta)}\\
+  1 - p(x_i) =\frac{1}{1 + \exp(x_i^T\beta)}
+\end{gather}
+
+Hence we can write
+\begin{equation}
+  \frac{\exp(x_i^T\beta^{(m)})}{(1+\exp(x_i^T\beta^{(m)}))^2}=p^{(m)}(x_i)(1-p^{(m)}(x_i))
+\end{equation}
+
+Finally, we can make our \textbf{quadratic approximation}:
+\begin{align}
+  L(\beta)&\approx \sum^n_{i=1} (y_ix_i^T\beta-p^{(m)}(x_i)x_i^T\beta)\label{quad-approx-no-penalty}\\
+  &+ \sum^n_{i=1}p^{(m)}(x_i)(1-p^{(m)}(x_i))(\beta^{(m)})^Tx_ix_i^T\beta \\
+  &- \frac{1}{2}\sum^n_{i=1}p^{(m)}(x_i)(1-p^{(m)}(x_i))\beta^Tx_ix_i^T\beta + \text{constant}(\beta^{(m)})
+\end{align}
+
+Ignoring the constants we get
+\begin{equation}\label{quadapprox}
+ \frac{1}{2}\sum^n_{i=1}p^{(m)}(x_i)(1-p^{(m)}(x_i))\Bigg( (x_i^T\beta)^2-2 \Bigg[ \frac{y_i-p^{(m)} (x_i)}{p^{m}(x_i)(1-p^{(m)}(x_i))} \Bigg](x_i^T\beta)\Bigg)
+\end{equation}
+
+For $i=1\dots n$, set $w_i^{(m)}:=p^{(m)}(x_i)(1-p^{(m)}(x_i)),z_i^{(m)}:=\frac{y_i-p^{(m)} (x_i)}{p^{m}(x_i)(1-p^{(m)}(x_i))}$, we can re-arrange quadratic approximation (\ref{quadapprox}) as
+\begin{equation}
+  -\frac{1}{2}\sum^n_{i=1}w_i^{(m)}\Bigg( (x_i^T\beta)^2-2z_i^{(m)}(x_i^T\beta) \Bigg)
+\end{equation}
+
+Now we can \textbf{complete the square} without moving the minimum to get the final quadratic approximation:
+
+\begin{equation}
+  L(\beta)\approx -\frac{1}{2}\sum^n_{i=1}w_i^{(m)}(z_i^{(m)} - x_i^T\beta)^2 + \text{constant}(y_i,x_i,b^{(m)}),
+\end{equation}
+
+turning it into the form of a \textbf{weighted least squares} problem
+\begin{equation}
+  \beta^{(m+1)}=\arg\min_\beta\sum^n_{i=1}w_i^{(m)}(z_i^{(m)}-x_i^T\beta)^2
+\end{equation}
+
+which gives the algorithm its other name: \textbf{Iteratively Reweighted Least Squares (IRLS)}.
+
+\subsubsection{IRLS and Penalties}
+
+
+Suppose we want to solve a \textit{penalized} logistic regression with penalty $P(\beta)$:
+\begin{equation}
+  \min_{\beta_0,\beta}(-L(\beta_0,\beta) + \lambda P(\beta))
+\end{equation}
+
+As in (\ref{quad-approx-no-penalty}), we make a quadratic approximation to the negative-log likelihood term, and minimize
+
+\begin{equation}
+  (\beta_0^{(m+1)},\beta^{(m+1)}) = \arg\min_{\beta_0,\beta}\sum^n_{i=1}w_i^{(m)}(z_i^{(m)}-\beta_0-x_i^T\beta^2) + \lambda P(\beta)
+\end{equation}
+\begin{writenoes}
+  Note that we've separated out the intercept, since we \textbf{never} want to penalize the intercept.
+\end{writenoes}
+
 
 \end{document}
