@@ -382,7 +382,7 @@ For the Lasso,
       \end{equation}
       where
       \begin{equation}
-      r_j = y - \sum^p_{\substack{i=1\\k\neq j}}\beta_k X_{:k}
+      r_j = y - \sum^p_{\substack{k=1\\k\neq j}}\beta_k X_{:k}
       \end{equation}
     \end{indentone}
   \end{enumerate}
@@ -584,11 +584,44 @@ Suppose we want to solve a \textit{penalized} logistic regression with penalty $
 As in (\ref{quad-approx-no-penalty}), we make a quadratic approximation to the negative-log likelihood term, and minimize
 
 \begin{equation}
-  (\beta_0^{(m+1)},\beta^{(m+1)}) = \arg\min_{\beta_0,\beta}\sum^n_{i=1}w_i^{(m)}(z_i^{(m)}-\beta_0-x_i^T\beta^2) + \lambda P(\beta)
+  (\beta_0^{(m+1)},\beta^{(m+1)}) = \arg\min_{\beta_0,\beta}\sum^n_{i=1}w_i^{(m)}(z_i^{(m)}-\beta_0-x_i^T\beta)^2 + \lambda P(\beta)
 \end{equation}
-\begin{writenoes}
+\begin{writenotes}
   Note that we've separated out the intercept, since we \textbf{never} want to penalize the intercept.
-\end{writenoes}
+\end{writenotes}
+
+\newpage
+
+\section{Week 10}
+\subsection{Evaluating Classifiers}
+
+In this section we will discuss how to evaluate \textit{approriate} classifiers.
+
+\subsubsection{Misclassification?}
+
+\textbf{Refer to classification problem on Week 10 - 1.}
+
+Total misclassification error is a \textit{blunt} instrument. It makes more sense to look at how it goes within each class.
+
+\begin{definition}[Sensitivity]
+  Sensitivity is the percentage of cases $(Y = 1)$ that are correctly identified, i.e. $Pr(\hat{y} = 1 \>|\> y = 1$.
+\end{definition}
+
+\begin{definition}[Specificity]
+  Specificity is the percentage of non-cases $(Y = 0)$ that are correctly identified, i.e. $Pr(\hat{y} = 0\>|\> y = 0)$
+\end{definition}
+
+\begin{writenotes}
+  Note that these terms are from medical/bio-stats.
+
+  There is a \textbf{trade-off} here.
+\end{writenotes}
+
+\subsubsection{The Confusion Matrix}
+
+The \textbf{confusion matrix} for a classification problem tells us how \textit{well} we did.
+
+In the classification problem on slides, the sensitivity is $81/333\times 100\% = 23\%$, and the specificity is $99.8\%$. Hence the linear classifier has very low sensitivty and high specificity.
 
 
 \end{document}

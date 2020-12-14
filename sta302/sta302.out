@@ -1,16 +1,74 @@
-\BOOKMARK [1][-]{section.1}{Module 9 - Multiple Linear Regression Analysis}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Review}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{R2 and Adjusted R2}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Global and Partial F-tests}{section.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Motivational Examples: Salary vs. Experience, Wine Quality}{subsection.1.3}% 5
-\BOOKMARK [1][-]{section.2}{Module 10 - Diagnostics in MLR}{}% 6
-\BOOKMARK [2][-]{subsection.2.1}{Inference for a Single Regression Coefficient}{section.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Hypothesis Testing}{subsection.2.1}% 8
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Confidence Interval}{subsection.2.1}% 9
-\BOOKMARK [3][-]{subsubsection.2.1.3}{Global F-test vs. Individual t-tests}{subsection.2.1}% 10
-\BOOKMARK [2][-]{subsection.2.2}{Multicollinearity}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.3}{Diagnostics and Remedies}{section.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.3.1}{Leverage and Influential Points}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.2}{The Box-Cox Transformation}{subsection.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.4}{Added Variable Plot \(Need to Review Lecture Part 3\)}{section.2}% 15
-\BOOKMARK [2][-]{subsection.2.5}{Data Analysis Flow}{section.2}% 16
+\BOOKMARK [1][-]{section.1}{Module 1 - Introduction to Data Analysis}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{What is SLR?}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Basic Concepts of a Regression Model}{subsection.1.1}% 3
+\BOOKMARK [1][-]{section.2}{Module 2 - The SLR Model}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{What is a Linear Model?}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Linear and Nonlinear Models}{subsection.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Simple Linear Regression Models}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Estimating the Regression Parameters}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.1}{The Least Squares Method}{subsection.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.2}{The Maximum Likelihood Estimator \(MLE\)}{subsection.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Bayesian Approach}{subsection.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.4}{Properties of Least-Square Estimators}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Properties of the Fitted Line}{subsection.2.4}% 13
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Interpreting Regression Parameter Estimates}{subsection.2.4}% 14
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Properties of Fitted LS Regression Line}{subsection.2.4}% 15
+\BOOKMARK [3][-]{subsubsection.2.4.4}{Gauss-Markov Theorem}{subsection.2.4}% 16
+\BOOKMARK [3][-]{subsubsection.2.4.5}{Properties of Slope Estimator: Expectation}{subsection.2.4}% 17
+\BOOKMARK [3][-]{subsubsection.2.4.6}{Properties of Intercept Estimator: Expectation}{subsection.2.4}% 18
+\BOOKMARK [3][-]{subsubsection.2.4.7}{Properties of Slope Estimator: Variance}{subsection.2.4}% 19
+\BOOKMARK [3][-]{subsubsection.2.4.8}{Properties of Intercept Estimator: Variance}{subsection.2.4}% 20
+\BOOKMARK [2][-]{subsection.2.5}{Statistical Assumptions of SLR}{section.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.5.1}{SLR Assumptions}{subsection.2.5}% 22
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Estimating Variance of Random Error Term}{subsection.2.5}% 23
+\BOOKMARK [3][-]{subsubsection.2.5.3}{Statistical Assumption for Inference}{subsection.2.5}% 24
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Sampling Distributions of Slope and Intercept Estimators}{subsection.2.5}% 25
+\BOOKMARK [1][-]{section.3}{Module 3 - Theory and Inference for SLR I}{}% 26
+\BOOKMARK [2][-]{subsection.3.1}{Mean and Variance of a Sample Mean}{section.3}% 27
+\BOOKMARK [1][-]{section.4}{Module 4 - Theory and Inference for SLR, Part II}{}% 28
+\BOOKMARK [2][-]{subsection.4.1}{Regression Analysis of Variance \(ANOVA\) Approach to Regression}{section.4}% 29
+\BOOKMARK [3][-]{subsubsection.4.1.1}{The F-Distributions}{subsection.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.2}{Connection Between Regression and Correlation Analysis}{section.4}% 31
+\BOOKMARK [3][-]{subsubsection.4.2.1}{The Bivariate Normal Distribution}{subsection.4.2}% 32
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Pearson's Sample Correlation Coefficient}{subsection.4.2}% 33
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Relationship between Regression and Correlation}{subsection.4.2}% 34
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Coefficient of Determination / R-Squared}{subsection.4.2}% 35
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Testing H0:= 0}{subsection.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.3}{Dummy Variable Regression}{section.4}% 37
+\BOOKMARK [3][-]{subsubsection.4.3.1}{The Pooled Two-Sample T-Procedure}{subsection.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.4}{Summary A: Data Analysis Tips}{section.4}% 39
+\BOOKMARK [1][-]{section.5}{Module 5 - Diagnostics in SLR}{}% 40
+\BOOKMARK [2][-]{subsection.5.1}{Probability Plots}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.2}{Properties of Residuals}{section.5}% 42
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Mean and Variance of Residuals}{subsection.5.2}% 43
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Covariance and Normality of Residuals}{subsection.5.2}% 44
+\BOOKMARK [1][-]{section.6}{Module 9 - Multiple Linear Regression Analysis}{}% 45
+\BOOKMARK [2][-]{subsection.6.1}{Review}{section.6}% 46
+\BOOKMARK [2][-]{subsection.6.2}{R-Squared and Adjusted R-Squared}{section.6}% 47
+\BOOKMARK [2][-]{subsection.6.3}{Global and Partial F-tests}{section.6}% 48
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Motivational Examples: Salary vs. Experience, Wine Quality}{subsection.6.3}% 49
+\BOOKMARK [1][-]{section.7}{Module 10 - Diagnostics in MLR}{}% 50
+\BOOKMARK [2][-]{subsection.7.1}{Inference for a Single Regression Coefficient}{section.7}% 51
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Hypothesis Testing}{subsection.7.1}% 52
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Confidence Interval}{subsection.7.1}% 53
+\BOOKMARK [3][-]{subsubsection.7.1.3}{Global F-test vs. Individual t-tests}{subsection.7.1}% 54
+\BOOKMARK [2][-]{subsection.7.2}{Multicollinearity}{section.7}% 55
+\BOOKMARK [2][-]{subsection.7.3}{Diagnostics and Remedies}{section.7}% 56
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Leverage and Influential Points}{subsection.7.3}% 57
+\BOOKMARK [3][-]{subsubsection.7.3.2}{The Box-Cox Transformation}{subsection.7.3}% 58
+\BOOKMARK [2][-]{subsection.7.4}{Added Variable Plot \(Need to Review Lecture Part 3\)}{section.7}% 59
+\BOOKMARK [2][-]{subsection.7.5}{Data Analysis Flow}{section.7}% 60
+\BOOKMARK [1][-]{section.8}{Module 11 - Variable Selection}{}% 61
+\BOOKMARK [2][-]{subsection.8.1}{Variable Selection}{section.8}% 62
+\BOOKMARK [3][-]{subsubsection.8.1.1}{Variable Selection: MLR and Likelihood-based Criteria}{subsection.8.1}% 63
+\BOOKMARK [3][-]{subsubsection.8.1.2}{Akaike's Information Criterion \(AIC\)}{subsection.8.1}% 64
+\BOOKMARK [3][-]{subsubsection.8.1.3}{Bayesian Information Criterion \(BIC\)}{subsection.8.1}% 65
+\BOOKMARK [3][-]{subsubsection.8.1.4}{A Model Selection Strategy}{subsection.8.1}% 66
+\BOOKMARK [2][-]{subsection.8.2}{Stepwise Regression}{section.8}% 67
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Stepwise Methods}{subsection.8.2}% 68
+\BOOKMARK [3][-]{subsubsection.8.2.2}{Stepwise Regression: Cautions}{subsection.8.2}% 69
+\BOOKMARK [2][-]{subsection.8.3}{Penalized Linear Regression}{section.8}% 70
+\BOOKMARK [2][-]{subsection.8.4}{Cross Validation}{section.8}% 71
+\BOOKMARK [3][-]{subsubsection.8.4.1}{Cross Validation Prediction Error}{subsection.8.4}% 72
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 73
+\BOOKMARK [2][-]{subsection.9.1}{Rules of Expectation}{section.9}% 74

@@ -21,3 +21,7 @@
 \BOOKMARK [2][-]{subsection.4.2}{Fitting Logistic Regression}{section.4}% 21
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Newton's Method}{subsection.4.2}% 22
 \BOOKMARK [3][-]{subsubsection.4.2.2}{IRLS and Penalties}{subsection.4.2}% 23
+\BOOKMARK [1][-]{section.5}{Week 10}{}% 24
+\BOOKMARK [2][-]{subsection.5.1}{Evaluating Classifiers}{section.5}% 25
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Misclassification?}{subsection.5.1}% 26
+\BOOKMARK [3][-]{subsubsection.5.1.2}{The Confusion Matrix}{subsection.5.1}% 27
